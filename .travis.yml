@@ -1,4 +1,4 @@
-dist: xenial
+dist: bionic
 language: bash
 addons:
   apt:
@@ -20,3 +20,4 @@ deploy:
   overwrite: true
   on:
     repo: hdk5/ArtixWSL
+    branch: master

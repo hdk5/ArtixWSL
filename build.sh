@@ -1,11 +1,10 @@
-#!/bin/bash -x
+#!/bin/bash -xe
 
 # Warning: this script is not supposed to be run on real system,
 # as it will not clean up after itself.
 # Use it only in ephemeral environments, such as Travis CI.
 
-source ./env.sh
-trap "exit 1" ERR
+source $(dirname "$0")/env.sh
 
 curl -L ${ISO_URL} -o ${ISO_FN}
 curl -L ${FRTCP_URL} -o ${FRTCP_FN}
@@ -15,8 +14,7 @@ unzip ${LNCR_ZIP} ${LNCR_FN}
 
 mkdir isofs
 mount -t iso9660 -o loop,ro ${ISO_FN} isofs
-unsquashfs -f -d livefs ./isofs/artix/${ARCH}/rootfs.sfs
-unsquashfs -f -d livefs ./isofs/artix/${ARCH}/livefs.sfs
+unsquashfs -f -d livefs ./isofs/LiveOS/rootfs.img
 
 mount --bind livefs livefs
 mount -t proc none livefs/proc
@@ -33,7 +31,9 @@ mkdir rootfs
 mount --bind rootfs rootfs
 mount --bind rootfs livefs/mnt
 
-cat <<EOF | chroot livefs /bin/bash -x -
+cat <<EOF | chroot livefs /bin/bash -xe -
+pacman-key --init
+pacman-key --populate
 pacman -Sy archlinux-keyring --noconfirm
 basestrap -G -M -c /mnt ${PAC_PKGS}
 EOF
@@ -43,7 +43,7 @@ sed -i -e "s/#en_US.UTF-8/en_US.UTF-8/" rootfs/etc/locale.gen
 sed -i -e "s/#IgnorePkg   =/IgnorePkg   = fakeroot/" rootfs/etc/pacman.conf
 cp ${FRTCP_FN} rootfs/root/
 
-cat <<EOF | chroot livefs artools-chroot /mnt /bin/bash -x -
+cat <<EOF | chroot livefs artools-chroot /mnt /bin/bash -xe -
 locale-gen
 pacman -U /root/${FRTCP_FN} --noconfirm
 EOF

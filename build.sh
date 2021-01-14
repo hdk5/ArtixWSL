@@ -43,7 +43,7 @@ sed -i -e "s/#en_US.UTF-8/en_US.UTF-8/" rootfs/etc/locale.gen
 sed -i -e "s/#IgnorePkg   =/IgnorePkg   = fakeroot/" rootfs/etc/pacman.conf
 cp ${FRTCP_FN} rootfs/root/
 
-cat <<EOF | chroot livefs artools-chroot /mnt /bin/bash -xe -
+cat <<EOF | chroot livefs artix-chroot /mnt /bin/bash -xe -
 locale-gen
 pacman -U /root/${FRTCP_FN} --noconfirm
 EOF

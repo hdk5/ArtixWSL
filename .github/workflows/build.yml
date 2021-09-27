@@ -33,7 +33,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: sudo build.sh
+      - run: sudo ./build.sh
       - uses: actions/upload-artifact@v2
         with:
           name: artix-${{ matrix.edition }}

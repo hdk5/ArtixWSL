@@ -33,9 +33,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: sudo ./build.sh
+      - run: sudo -E ./build.sh
       - uses: actions/upload-artifact@v2
         with:
-          name: artix-${{ matrix.edition }}
-          path: artix-${{ matrix.edition }}.zip
+          name: Artix-${{ matrix.edition }}
+          path: Artix-${{ matrix.edition }}.zip
         if: github.ref == 'refs/heads/master'

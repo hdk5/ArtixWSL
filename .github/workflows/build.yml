@@ -24,8 +24,8 @@ jobs:
           extra_pkgs: runit elogind-runit
         - edition: s6
           extra_pkgs: s6-base elogind-s6
-        - edition: '66'
-          extra_pkgs: 66 elogind-66
+        - edition: suite66
+          extra_pkgs: suite66-base elogind-suite66
 
     env:
       EDITION: ${{ matrix.edition }}
@@ -37,5 +37,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Artix-${{ matrix.edition }}
-          path: Artix-${{ matrix.edition }}.zip
+          path: build/Artix-${{ matrix.edition }}.zip
         if: github.ref == 'refs/heads/master'

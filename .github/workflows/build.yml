@@ -1,0 +1,41 @@
+name: Build rootfs.tar.gz
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - edition: openrc
+          extra_pkgs: openrc elogind-openrc
+        - edition: runit
+          extra_pkgs: runit elogind-runit
+        - edition: s6
+          extra_pkgs: s6-base elogind-s6
+        - edition: '66'
+          extra_pkgs: 66 elogind-66
+
+    env:
+      EDITION: ${{ matrix.edition }}
+      EXTRA_PKGS: ${{ matrix.extra_pkgs }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo ./build.sh
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artix-${{ matrix.edition }}
+          path: artix-${{ matrix.edition }}.zip
+        if: github.ref == 'refs/heads/master'

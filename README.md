@@ -5,4 +5,4 @@ Artix Linux on WSL (Windows 10 FCU or later) based on [wsldl](https://github.com
 
 Refer to [ArchWSL](https://github.com/yuk7/ArchWSL) README for further instructions - most of it should also work for ArtixWSL
 
-Note that this project is not affiliated with ArchWSL itself and any of it maintainers - bothering them would make you look stupid and make them mad at both you and me.
+Note that this project is not affiliated with ArchWSL itself and any of it maintainers - bothering them with questions regarding Artix would make you look stupid and make them mad at both you and me.

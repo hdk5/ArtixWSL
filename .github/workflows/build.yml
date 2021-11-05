@@ -51,3 +51,4 @@ jobs:
           repo_token: "${{secrets.GITHUB_TOKEN}}"
           automatic_release_tag: latest
           files: Artix-*/Artix-*.zip
+          prerelease: false

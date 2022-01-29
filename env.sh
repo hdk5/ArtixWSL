@@ -1,6 +1,6 @@
 ARCH="x86_64"
 
-ISO_VER="20210726"
+ISO_VER="20220123"
 ISO_ED="base"
 ISO_INIT="runit"
 ISO_FN="artix-${ISO_ED}-${ISO_INIT}-${ISO_VER}-${ARCH}.iso"

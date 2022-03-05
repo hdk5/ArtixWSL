@@ -11,10 +11,9 @@ FRTCP_VER="1.25.3-2"
 FRTCP_FN="fakeroot-tcp-${FRTCP_VER}-${ARCH}.pkg.tar.zst"
 FRTCP_URL="https://github.com/yuk7/arch-prebuilt/releases/download/${FRTCP_BLD}/${FRTCP_FN}"
 
-GLIBC_BLD="21082800"
-GLIBC_VER="2.33-5"
-GLIBC_FN="glibc-${GLIBC_VER}-${ARCH}.pkg.tar.zst"
-GLIBC_URL="https://github.com/yuk7/arch-prebuilt/releases/download/${GLIBC_BLD}/${GLIBC_FN}"
+GLIBC_VER="2.35-2"
+GLIBC_FN="glibc-linux4-${GLIBC_VER}-${ARCH}.pkg.tar.zst"
+GLIBC_URL="https://repo.archlinuxcn.org/${ARCH}/${GLIBC_FN}"
 
 LNCR_BLD="21082800"
 LNCR_ZIP="icons.zip"

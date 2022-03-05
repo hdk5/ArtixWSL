@@ -37,7 +37,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Artix-${{ matrix.edition }}
-          path: build/Artix-${{ matrix.edition }}.zip
+          path: out/Artix-${{ matrix.edition }}.zip
 
   publish:
     runs-on: ubuntu-latest

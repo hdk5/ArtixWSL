@@ -26,6 +26,8 @@ jobs:
           extra_pkgs: s6-base elogind-s6
         - edition: suite66
           extra_pkgs: suite66-base elogind-suite66
+        - edition: dinit
+          extra_pkgs: dinit elogind-dinit
 
     env:
       EDITION: ${{ matrix.edition }}

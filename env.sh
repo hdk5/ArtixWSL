@@ -15,7 +15,7 @@ GLIBC_VER="2.35-2"
 GLIBC_FN="glibc-linux4-${GLIBC_VER}-${ARCH}.pkg.tar.zst"
 GLIBC_URL="https://repo.archlinuxcn.org/${ARCH}/${GLIBC_FN}"
 
-LNCR_BLD="21082800"
+LNCR_BLD="22020900"
 LNCR_ZIP="icons.zip"
 LNCR_FN="Artix.exe"
 LNCR_URL="https://github.com/yuk7/wsldl/releases/download/${LNCR_BLD}/${LNCR_ZIP}"

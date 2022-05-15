@@ -1,3 +1,5 @@
+CWD=$(realpath $(dirname $0))
+
 ARCH="x86_64"
 
 ISO_VER="20220123"
@@ -24,4 +26,15 @@ LNCR_FN="Artix.exe"
 LNCR_URL="https://github.com/yuk7/wsldl/releases/download/${LNCR_BLD}/${LNCR_ZIP}"
 LNCR_SHA256="d270a65a5dda491d5d566ad5f3bbb1e507caa714f5e57e139a2cc25abd507948"
 
-PAC_PKGS="base ${EXTRA_PKGS}"
+pushd ${CWD}/download
+curl -L ${ISO_URL} -o artix.iso
+curl -L ${FRTCP_URL} -o fakeroot-tcp.pkg
+curl -L ${GLIBC_URL} -o glibc-linux4.pkg
+curl -L ${LNCR_URL} -o wsldl.zip
+
+cat <<EOF | sha256sum --check
+${ISO_SHA256} artix.iso
+${FRTCP_SHA256} fakeroot-tcp.pkg
+${GLIBC_SHA256} glibc-linux4.pkg
+${LNCR_SHA256} wsldl.zip
+EOF

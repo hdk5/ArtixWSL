@@ -35,6 +35,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: ./download.sh
       - run: sudo -E ./build.sh
       - uses: actions/upload-artifact@v2
         with:

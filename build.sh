@@ -14,8 +14,6 @@ pushd $BUILD_DIR
 
 ln -s ${DOWNLOAD_DIR}/* .
 
-unzip wsldl.zip Artix.exe
-
 mkdir isofs
 mount -t iso9660 -o loop,ro artix.iso isofs
 unsquashfs -f -d livefs ./isofs/LiveOS/rootfs.img
@@ -60,4 +58,4 @@ EOF
 rm -f rootfs/fakeroot-tcp.pkg rootfs/glibc-linux4.pkg
 
 tar zcpf rootfs.tar.gz -C rootfs .
-zip $CWD/out/Artix-${EDITION}.zip ${LNCR_FN} rootfs.tar.gz
+zip $CWD/out/Artix-${EDITION}.zip Artix.exe rootfs.tar.gz

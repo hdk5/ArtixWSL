@@ -20,21 +20,13 @@ GLIBC_FN="glibc-linux4-${GLIBC_VER}-${ARCH}.pkg.tar.zst"
 GLIBC_URL="https://repo.archlinuxcn.org/${ARCH}/${GLIBC_FN}"
 GLIBC_SHA256="0f4e89387e71426fb193e4a68fe01bd8400f50ee89bb70963aa881d296b479d5"
 
-LNCR_BLD="22020900"
-LNCR_ZIP="icons.zip"
-LNCR_FN="Artix.exe"
-LNCR_URL="https://github.com/yuk7/wsldl/releases/download/${LNCR_BLD}/${LNCR_ZIP}"
-LNCR_SHA256="d270a65a5dda491d5d566ad5f3bbb1e507caa714f5e57e139a2cc25abd507948"
-
 pushd ${CWD}/download
 curl -L ${ISO_URL} -o artix.iso
 curl -L ${FRTCP_URL} -o fakeroot-tcp.pkg
 curl -L ${GLIBC_URL} -o glibc-linux4.pkg
-curl -L ${LNCR_URL} -o wsldl.zip
 
 cat <<EOF | sha256sum --check
 ${ISO_SHA256} artix.iso
 ${FRTCP_SHA256} fakeroot-tcp.pkg
 ${GLIBC_SHA256} glibc-linux4.pkg
-${LNCR_SHA256} wsldl.zip
 EOF

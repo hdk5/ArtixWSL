@@ -36,7 +36,7 @@ mount --bind rootfs livefs/mnt
 cat <<EOF | chroot livefs /bin/bash -xe -
 pacman-key --init
 pacman-key --populate
-pacman -Sy archlinux-keyring --noconfirm
+pacman -Sy artix-keyring --noconfirm
 basestrap -G -M -c /mnt base ${EXTRA_PKGS}
 EOF
 

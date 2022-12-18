@@ -15,10 +15,10 @@ FRTCP_FN="fakeroot-tcp-${FRTCP_VER}-${ARCH}.pkg.tar.zst"
 FRTCP_URL="https://github.com/yuk7/arch-prebuilt/releases/download/${FRTCP_BLD}/${FRTCP_FN}"
 FRTCP_SHA256="702a2c85989e652ce1dacd923717fddf90a4738a520c476b7219309aedefe3ee"
 
-GLIBC_VER="2.35-2"
+GLIBC_VER="2.36-1"
 GLIBC_FN="glibc-linux4-${GLIBC_VER}-${ARCH}.pkg.tar.zst"
 GLIBC_URL="https://repo.archlinuxcn.org/${ARCH}/${GLIBC_FN}"
-GLIBC_SHA256="0f4e89387e71426fb193e4a68fe01bd8400f50ee89bb70963aa881d296b479d5"
+GLIBC_SHA256="822eec82232e312ec74a6463ccdbe5ce98c78b066d6aad8d062469ed3369c064"
 
 pushd ${CWD}/download
 curl -L ${ISO_URL} -o artix.iso
